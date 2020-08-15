@@ -3,9 +3,6 @@ prepararAmbiente <- function(){
   if (!is.element("tidyverse", installed.packages())){
     install.packages("tidyverse")
   }
-  if (!is.element("readxl", installed.packages())){
-    install.packages("readxl")
-  }
   if (!is.element("jsonlite", installed.packages())){
     install.packages("jsonlite")
   }
@@ -22,7 +19,7 @@ archivoOrigen <- args[2]
 setwd(path_loc)
 
 dataOriginal <- fromJSON(archivoOrigen) %>% as_tibble()
-dataOriginal$TotalCharges <- as.numeric(df$TotalCharges)
+dataOriginal$TotalCharges <- as.numeric(dataOriginal$TotalCharges)
 #reemplazar los nulos con la media
 dataMCLimpio <- dataOriginal %>% mutate(MonthlyCharges = replace(MonthlyCharges, is.na(MonthlyCharges), median(MonthlyCharges, na.rm= TRUE)))
 

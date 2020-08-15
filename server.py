@@ -1,15 +1,15 @@
 import sys, subprocess
-from flask import Flask, request, jsonify
 import json
+from flask import Flask, request, jsonify
 import pandas as pd
 
 app = Flask(__name__)
 
-locJSON = sys.argv[1]
-nombreJSON = sys.argv[2]
-locResultado = sys.argv[3]
+locJSON = sys.argv[1] # suponiendo que quieras guardar el json recibido en un folder distinto
+nombreJSON = sys.argv[2] # para q puedas diferenciar resultados de usuarios usando el nombre del json
+locResultado = sys.argv[3] # suponiendo que quieras guardar el resultado del procesamiento en un folder distinto
 
-comandoR = 'Rscript "D:/Datos de Usuario/rgamezv/Downloads/prueba/limpiador.R" "{}" "{}" "{}"'.format(locJSON, nombreJSON, locResultado)
+comandoR = 'Rscript "C:/Users/RoniD/Downloads/serverP+R/limpiador.R" "{}" "{}" "{}"'.format(locJSON, nombreJSON, locResultado)
 
 @app.route("/calcularResultado", methods = ["POST"])
 def calcularResultado():
@@ -17,7 +17,7 @@ def calcularResultado():
     with open("miRequest.json", "w", encoding= "utf8") as file:
         json.dump(requestJSON, file)
     subprocess.run(comandoR)
-    dirResultado = '{}/resultado.json'.format(locResultado)
+    dirResultado = "{}/resultado.json".format(locResultado)
     # with open(dirResultado, "r") as file:
     #     resultado = json.load(file)
     #     print(resultado)

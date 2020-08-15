@@ -1,15 +1,14 @@
 # Server Python + R
 
 ## Descripcion:
-Este es un repo de pruebas que busca crear un flujo entre Python y R
+Este es un repo de pruebas que busca crear un servidor simple y un flujo entre Python y R
 Python sera usado para hacer la llamada a R por medio de un subproceso
 El script tmb instala las librerias necesarias de R (tidyverse, jsonlite)
 
-Para probar el script de R, ejecutar el comando:
-Rscript prueba.R "direccion del folder donde se encuentra el json de telecom" "telecom.json" "direccion del folder destino"
-
 ## Para ejecutar el script de Python, ejecutar el comando:
-python prueba.py "D:/Datos de Usuario/rgamezv/Downloads/prueba" "miRequest.json" "D:/Datos de Usuario/rgamezv/Downloads/resultadoPrueba"
+python server.py "direccion del folder donde se guardara el json recibido por el servidor" "nombre con el que se guardara el json recibido por el servidor" "C:/Users/RoniD/Downloads/serverP+R/resultados"
 
-## Ejemplo:
-Rscript prueba.R "D:/Datos de Usuario/rgamezv/Downloads/prueba" "telecom.json" "D:/Datos de Usuario/rgamezv/Downloads/resultadoPrueba"
+## Ejemplos:
+- python server.py "C:/Users/RoniD/Downloads/serverP+R" "requestRecibido.json" "C:/Users/RoniD/Downloads/serverP+R/resultados"
+
+- Rscript limpiador.R "C:/Users/RoniD/Downloads/serverP+R" "telecom.json" "C:/Users/RoniD/Downloads/serverP+R/resultados"
