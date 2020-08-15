@@ -8,6 +8,9 @@ El script tmb instala las librerias necesarias de R (tidyverse, jsonlite)
 ## Para ejecutar el script de Python, ejecutar el comando:
 python server.py "direccion del folder donde se guardara el json recibido por el servidor" "nombre con el que se guardara el json recibido por el servidor" "C:/Users/RoniD/Downloads/serverP+R/resultados"
 
+### Importante:
+Para que funcione correctamente, se debe iniciar el servidor desde un cmd fuera de vscode
+
 ## Ejemplos:
 - python server.py "C:/Users/RoniD/Downloads/serverP+R" "requestRecibido.json" "C:/Users/RoniD/Downloads/serverP+R/resultados"
 
